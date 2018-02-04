@@ -13,19 +13,102 @@
     <!--
     <link rel="stylesheet" href="<?php echo base_url('bootstrap/css/bootstrap.min.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('bootstrap/css/estil.css');?>">  
+    <link rel="stylesheet" href="<?php echo base_url('fontawesome/web-fonts-with-css/css/fontawesome-all.css');?>">
 -->
+<link rel="stylesheet" href="<?php echo base_url('fontawesome/web-fonts-with-css/css/fontawesome-all.css');?>">
 </head>
 
 <body class="h-100 bg-dark">
+<header class="container-fluid">
+<nav class="row navbar navbar-expand-lg navbar-dark bg-primary">
+   <!-- boto toggler-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <a class="navbar-brand d-none d-sm-block" href="#">Borsa Milà</a>
+    
+    <div class="row bg-primary order-lg-4">
+                
+        <!--infoAdmin-->
+        <div class="col p-0">
+                <button type="button" class="btn btn-primary p-2 px-4" data-toggle="modal" data-target="#adminModal"><i class="fas fa-question-circle"></i></button>
+                <!-- Modal-Admin -->
+                <div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="adminTitle">
+                                    Ajuda
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <p class="col-12">
+                                        Per a demanar ajuda al administrador:
+                                    </p>
+                                    <div class="row mx-1 my-2">
+                                        <div class="col-12 col-md-6">E-Mail:</div>
+                                        <div class="col-12 col-md-6">admin@admin.com</div>
+                                    </div>
+                                    <div class="row mx-1 my-2">
+                                        <div class="col-12 col-md-6">Telefon:</div>
+                                        <div class="col-12 col-md-6">908909080</div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--modal-Admin-->
+            </div>                
+        <!--logoutModal-->
+        <div class="col p-0">
+            <button type="button" class="btn btn-primary p-2 px-4" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt"></i></button>
+            <!-- Modal-logout -->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="logoutTitle">
+                                <?php /*echo lang('PanellControlUsuari'); TRADUCCION AQUI*/ ?>
+                                 Segur que vol sortir?
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                            <?php echo anchor(site_url('Login/Logout'),'SI','class="btn btn-primary"');?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--modal-logout-->
+        </div>
+    </div>
+    <!--links-->
+    <div class="collapse navbar-collapse pt-3 pt-md-0" id="navbarSupportedContent">
+        <ul class="nav nav-pills justify-content-end mb-2">
+            <li class="nav-item"><?php echo anchor(site_url('RegistreEmpresa/index/cat'),'<img src="'.base_url('assets/own/img/catalan.png').'" alt="catalan" style="width:40px;height:20px;">')?>
+                </li>
+            <li class="nav-item"><?php echo anchor(site_url('RegistreEmpresa/index/es') ,'<img src="'.base_url('assets/own/img/spanish.png').'" alt="catalan" style="width:40px;height:20px;">')?>
+                </li>
+            <li class="nav-item"><?php echo anchor(site_url('RegistreEmpresa/index/en') ,'<img src="'.base_url('assets/own/img/english.png').'" alt="catalan" style="width:40px;height:20px;">')?>
+                </li>
+        </ul>
+    </div>
+</nav>
+</header>
 <div class="container-fluid">
-<ul class="nav nav-pills justify-content-end mb-2">
-    <li class="nav-item"><?php echo anchor(site_url('RegistreEmpresa/index/cat'),'<img src="'.base_url('assets/own/img/catalan.png').'" alt="catalan" style="width:40px;height:20px;">')?>
-        </li>
-    <li class="nav-item"><?php echo anchor(site_url('RegistreEmpresa/index/es') ,'<img src="'.base_url('assets/own/img/spanish.png').'" alt="catalan" style="width:40px;height:20px;">')?>
-        </li>
-    <li class="nav-item"><?php echo anchor(site_url('RegistreEmpresa/index/en') ,'<img src="'.base_url('assets/own/img/english.png').'" alt="catalan" style="width:40px;height:20px;">')?>
-        </li>
-</ul>
+
     <form action="" method="post">
         <section class="row justify-content-center bg-white mx-1 my-3">
             <h4 class="col-12"><?php echo lang('TitolDadesUsuari'); ?></h4>
