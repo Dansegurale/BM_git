@@ -1,18 +1,18 @@
 <?php 
-$lang['Ofertes']='Ofertes';
-$lang['OfertesSubs']='Ofertes Subscrites';
+$lang['Ofertes']='Offers';
+$lang['OfertesSubs']='Subscribed offers';
 
 
-$lang['PanellControlUsuari']='Panell de control d\'usuari';
-$lang['ContinuarRebentOfertes']='Vols continuar rebent ofertes de feina?';
-$lang['Si']='Si';
+$lang['PanellControlUsuari']='User control panel';
+$lang['ContinuarRebentOfertes']='So you want to continue receibing work offers?';
+$lang['Si']='Yes';
 $lang['No']='No';
-$lang['CanviContrasenya']='Canvi de contrasenya';
-$lang['ContrasenyaActual']='Contrasenya actual';
-$lang['ContrasenyaNova']='Contrasenya nova';
-$lang['ConfirmarContrasenya']='Confirmar contrasenya';
-$lang['PwdRemindMe']='He oblidat la contrasenya.';
-$lang['Aplicar']='Aplicar';
+$lang['CanviContrasenya']='Password change';
+$lang['ContrasenyaActual']='Actual password';
+$lang['ContrasenyaNova']='New password';
+$lang['ConfirmarContrasenya']='Confirm password';
+$lang['PwdRemindMe']='I\'ve forgotten my password';
+$lang['Aplicar']='Apply';
 
 
 ?>
