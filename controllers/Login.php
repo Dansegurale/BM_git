@@ -12,8 +12,8 @@ class Login extends CI_Controller {
 		$this->load->helper(array('url','language'));
         $this->load->library('form_validation');
         
-        $this->session->userdata('idioma','cat');
-        $this->session->userdata('currentControler','Login');
+        $this->session->set_userdata('idioma','cat');
+        $this->session->set_userdata('currentControler','Login');
         
 	}
 

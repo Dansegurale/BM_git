@@ -8,15 +8,20 @@ class RegistreEmpresa extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url','language'));
         $this->session->set_userdata('rol', 2);
-        $this->session->userdata('currentControler','RegistreEmpresa');
+        $this->session->set_userdata('currentControler','RegistreEmpresa');
 
 	}
 
 	public function index($lang='')
 	{
         $data['rol']=$this->session->rol; 
-        $data['traduccions'] = $this->lang->load('RegistreEmpresa', $lang==''?'cat':$lang);
-        //$data['message']=$this->lang->line('Alumne');
+        $data['currentControler']=$this->session->currentControler; 
+        
+        if($this->session->idioma != $lang && $lang!=''){
+            $this->session->idioma = $lang;
+        }
+        $this->lang->load('Empresa',$this->session->idioma);
+        
 		$this->load->view('RegistreEmpresa',$data);
         
 	}

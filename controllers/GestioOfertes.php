@@ -7,7 +7,7 @@ class GestioOfertes extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('url','language'));
-         $this->session->userdata('currentControler','GestioOfertes');
+         $this->session->set_userdata('currentControler','GestioOfertes');
         
 	}
 
@@ -18,12 +18,12 @@ class GestioOfertes extends CI_Controller {
         }
             
         $data['rol']=$this->session->rol;        
+        $data['currentControler']=$this->session->currentControler; 
         
         if($this->session->idioma != $lang && $lang!=''){
             $this->session->idioma = $lang;
         }
-        
-        $this->lang->load('GestioOfertes', $this->session->idioma);
+        $this->lang->load('Empresa',$this->session->idioma);
             
 		$this->load->view('GestioOfertes',$data);
         

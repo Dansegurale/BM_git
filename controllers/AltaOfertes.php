@@ -7,7 +7,7 @@ class AltaOfertes extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('url','language'));
-        $this->session->userdata('currentControler','AltaOfertes');
+        $this->session->set_userdata('currentControler','AltaOfertes');
 	}
 
 	public function index($lang='')
@@ -17,8 +17,13 @@ class AltaOfertes extends CI_Controller {
         }
             
         $data['rol']=$this->session->rol;    
-        $data['traduccions'] = $this->lang->load('AltaOfertes', $lang==''?'cat':$lang);
-        //$data['message']=$this->lang->line('Alumne');
+        $data['currentControler']=$this->session->currentControler; 
+        
+        if($this->session->idioma != $lang && $lang!=''){
+            $this->session->idioma = $lang;
+        }
+        $this->lang->load('Empresa',$this->session->idioma);
+        
 		$this->load->view('AltaOfertes',$data);
         
 	}

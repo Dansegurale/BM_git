@@ -1,8 +1,8 @@
 <?php 
-$lang['Ofertes']='Ofertes';
-$lang['OfertesSubs']='Ofertes Subscrites';
-
-
+//common Header links
+$lang['AlumnesOfertes']='Ofertes';
+$lang['OfertesSubscrites']='Ofertes Subscrites';
+//common header
 $lang['PanellControlUsuari']='Panell de control d\'usuari';
 $lang['ContinuarRebentOfertes']='Vols continuar rebent ofertes de feina?';
 $lang['Si']='Si';

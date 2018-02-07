@@ -1,10 +1,10 @@
 <?php
-    $lang['TitolEmpresa']='Bussiness';
+    $lang['TitolEmpresa']='Company';
     $lang['TitolAlumne']='Student';
     $lang['EmailInput']='Email';
-    $lang['EmailHelp']='We\'ll never share your email with anyone else.';
+    $lang['EmailHelp']='We won\'t share your info.';
     $lang['PwdInput']='Password';
-    $lang['PwdRemindMe']='I\'ve forgoten my password';
+    $lang['PwdRemindMe']='I\'ve forgotten my password.';
     $lang['SignUp']='Sign Up';
     $lang['LogIn']='Log In';
 ?>

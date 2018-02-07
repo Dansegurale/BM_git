@@ -7,7 +7,7 @@ class AlumnesOfertes extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('url','language'));
-		$this->session->userdata('currentControler','AlumnesOfertes');
+		$this->session->set_userdata('currentControler','AlumnesOfertes');
 	}
 
 	public function index($lang='')
@@ -17,15 +17,16 @@ class AlumnesOfertes extends CI_Controller {
         }
             
         $data['rol']=$this->session->rol;   
-        $data['traduccions'] = $this->lang->load('AlumnesOfertes', $lang==''?'cat':$lang);
-        //$data['message']=$this->lang->line('Alumne');
+        $data['currentControler']=$this->session->currentControler;   
+        
+        if($this->session->idioma != $lang && $lang!=''){
+            $this->session->idioma = $lang;
+        }
+        $this->lang->load('Alumnes',$this->session->idioma);
+        
 		$this->load->view('AlumnesOfertes',$data);
         
 	}
     
-	public function LoginEmpresa()
-	{
-	
-	}
 
 }

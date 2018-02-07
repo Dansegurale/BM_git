@@ -7,7 +7,7 @@ class OfertesSubscrites extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('url','language'));
-		 $this->session->userdata('currentControler','OfertesSubscrites');
+		 $this->session->set_userdata('currentControler','OfertesSubscrites');
 	}
 
 	public function index($lang='')
@@ -16,9 +16,14 @@ class OfertesSubscrites extends CI_Controller {
             redirect ('Login/index', 'refresh');
         }
             
-        $data['rol']=$this->session->rol;   
-        $data['traduccions'] = $this->lang->load('OfertesSubscrites', $lang==''?'cat':$lang);
-        //$data['message']=$this->lang->line('Alumne');
+        $data['rol']=$this->session->rol;
+        $data['currentControler']=$this->session->currentControler; 
+        
+        if($this->session->idioma != $lang && $lang!=''){
+            $this->session->idioma = $lang;
+        }
+        $this->lang->load('Alumnes',$this->session->idioma);
+        
 		$this->load->view('OfertesSubscrites',$data);
         
 	}

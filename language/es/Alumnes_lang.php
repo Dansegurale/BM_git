@@ -1,10 +1,10 @@
 <?php 
-$lang['Ofertes']='Ofertas';
-$lang['OfertesSubs']='Ofertas Suscritas';
-
-
+//common Header links
+$lang['AlumnesOfertes']='Ofertas';
+$lang['OfertesSubscrites']='Ofertas Subscritas';
+//common header
 $lang['PanellControlUsuari']='Panel de control del usuario';
-$lang['ContinuarRebentOfertes']='¿Quiere continuar recibiendo ofertas de trabajo?';
+$lang['ContinuarRebentOfertes']='¿Quiere seguir recibiendo ofertas de trabajo?';
 $lang['Si']='Si';
 $lang['No']='No';
 $lang['CanviContrasenya']='Cambio de contraseña';
