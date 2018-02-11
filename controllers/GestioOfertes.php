@@ -7,27 +7,29 @@ class GestioOfertes extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('url','language'));
-         $this->session->set_userdata('currentControler','GestioOfertes');
         
-	}
-
-	public function index($lang='')
-	{
+        $this->session->set_userdata('currentControler','AltaOfertes');
+        
         if($this->session->rol!=2){
             redirect ('Login/index', 'refresh');
         }
-            
-        $data['rol']=$this->session->rol;        
-        $data['currentControler']=$this->session->currentControler; 
-        
-        if($this->session->idioma != $lang && $lang!=''){
-            $this->session->idioma = $lang;
-        }
-        $this->lang->load('Empresa',$this->session->idioma);
-            
-		$this->load->view('GestioOfertes',$data);
-        
 	}
 
+	public function index()
+	{
+        $data['rol']=$this->session->rol;    
+        $data['currentControler']=$this->session->currentControler; 
+        
+        $this->lang->load('Empresa', $this->session->idioma);
+		$this->load->view('GestioOfertes',$data);
+	}
+    
+    public function canviaLang($lang=''){
+        if($this->session->idioma != $lang && $lang!=''){
+             $this->session->set_userdata('idioma',$lang);
+        }
+                
+        redirect ('GestioOfertes/index', 'refresh');
+    }
 
 }

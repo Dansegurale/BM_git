@@ -7,26 +7,29 @@ class AltaOfertes extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('url','language'));
+        
         $this->session->set_userdata('currentControler','AltaOfertes');
-	}
-
-	public function index($lang='')
-	{
+        
         if($this->session->rol!=2){
             redirect ('Login/index', 'refresh');
         }
-            
+	}
+
+	public function index()
+	{
         $data['rol']=$this->session->rol;    
         $data['currentControler']=$this->session->currentControler; 
         
-        if($this->session->idioma != $lang && $lang!=''){
-            $this->session->idioma = $lang;
-        }
-        $this->lang->load('Empresa',$this->session->idioma);
-        
+        $this->lang->load('Empresa', $this->session->idioma);
 		$this->load->view('AltaOfertes',$data);
-        
 	}
-
+    
+    public function canviaLang($lang=''){
+        if($this->session->idioma != $lang && $lang!=''){
+             $this->session->set_userdata('idioma',$lang);
+        }
+                
+        redirect ('AltaOfertes/index', 'refresh');
+    }
 
 }

@@ -19,9 +19,9 @@
 <body class="h-100 bg-dark">
     <div class="container-fluid">
         <ul class="nav nav-pills justify-content-end mb-2">
-            <li class="nav-item">'<?php echo anchor(site_url('Login/index/cat'),'<img src="'.base_url('assets/own/img/catalan.png').'" alt="catalan" style="width:40px;height:20px;">')?>></li>
-            <li class="nav-item">'<?php echo anchor(site_url('Login/index/es') ,'<img src="'.base_url('assets/own/img/spanish.png').'" alt="catalan" style="width:40px;height:20px;">')?>></li>
-            <li class="nav-item">'<?php echo anchor(site_url('Login/index/en') ,'<img src="'.base_url('assets/own/img/english.png').'" alt="catalan" style="width:40px;height:20px;">')?>></li>
+            <li class="nav-item"><?php echo anchor(site_url('Login/canviaLang/cat'),'<img src="'.base_url('assets/own/img/catalan.png').'" alt="catalan" style="width:40px;height:20px;">')?></li>
+            <li class="nav-item"><?php echo anchor(site_url('Login/canviaLang/es') ,'<img src="'.base_url('assets/own/img/spanish.png').'" alt="spanish" style="width:40px;height:20px;">')?></li>
+            <li class="nav-item"><?php echo anchor(site_url('Login/canviaLang/en') ,'<img src="'.base_url('assets/own/img/english.png').'" alt="english" style="width:40px;height:20px;">')?></li>
         </ul>
         <div class="row justify-content-center h-100">
             <div class="col-12 col-md-5 h-50 h-md-75">

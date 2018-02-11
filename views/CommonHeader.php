@@ -116,9 +116,9 @@
         <div class="col dropdown p-0">
             <button class="btn btn-primary dropdown-toggle p-2 px-4" type="button" id="IdiomPicker" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe"></i></button>
             <div class="dropdown-menu" aria-labelledby="IdiomPicker">
-                <?php echo anchor(site_url($currentControler.'/index/cat'),'<img src="'.base_url('assets/own/img/catalan.png').'" alt="catalan" style="width:40px;height:20px;">','class="dropdown-item"')?>
-                <?php echo anchor(site_url($currentControler.'/index/es') ,'<img src="'.base_url('assets/own/img/spanish.png').'" alt="spanish" style="width:40px;height:20px;">','class="dropdown-item"')?>
-                <?php echo anchor(site_url($currentControler.'/index/en') ,'<img src="'.base_url('assets/own/img/english.png').'" alt="english" style="width:40px;height:20px;">','class="dropdown-item"')?>
+                <?php echo anchor(site_url($currentControler.'/canviaLang/cat'),'<img src="'.base_url('assets/own/img/catalan.png').'" alt="catalan" style="width:40px;height:20px;">','class="dropdown-item"')?>
+                <?php echo anchor(site_url($currentControler.'/canviaLang/es') ,'<img src="'.base_url('assets/own/img/spanish.png').'" alt="spanish" style="width:40px;height:20px;">','class="dropdown-item"')?>
+                <?php echo anchor(site_url($currentControler.'/canviaLang/en') ,'<img src="'.base_url('assets/own/img/english.png').'" alt="english" style="width:40px;height:20px;">','class="dropdown-item"')?>
             </div>
         </div>
         <?php } ?>
@@ -161,7 +161,7 @@
                 if($rol!=0){
                     foreach($links as $link){
                         echo '<li class="nav-item ">';
-                        echo anchor(site_url($link.'/index'),$link,'class="nav-link text-light"');
+                        echo anchor(site_url($link.'/index'),lang($link),'class="nav-link text-light"');
                         echo '</li>';
                     }
                 }

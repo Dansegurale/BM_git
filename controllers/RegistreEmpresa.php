@@ -9,26 +9,26 @@ class RegistreEmpresa extends CI_Controller {
 		$this->load->helper(array('url','language'));
         $this->session->set_userdata('rol', 2);
         $this->session->set_userdata('currentControler','RegistreEmpresa');
+        
+        //no te rol = 2 !!!
 
 	}
 
-	public function index($lang='')
+	public function index()
 	{
-        $data['rol']=$this->session->rol; 
+        $data['rol']=$this->session->rol;    
         $data['currentControler']=$this->session->currentControler; 
         
-        if($this->session->idioma != $lang && $lang!=''){
-            $this->session->idioma = $lang;
-        }
-        $this->lang->load('Empresa',$this->session->idioma);
-        
-		$this->load->view('RegistreEmpresa',$data);
-        
+        $this->lang->load('Empresa', $this->session->idioma);
+		$this->load->view('AltaOfertes',$data);
 	}
     
-	public function LoginEmpresa()
-	{
-	
-	}
+    public function canviaLang($lang=''){
+        if($this->session->idioma != $lang && $lang!=''){
+             $this->session->set_userdata('idioma',$lang);
+        }
+                
+        redirect ('RegistreEmpresa/index', 'refresh');
+    }
 
 }

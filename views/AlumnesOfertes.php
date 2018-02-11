@@ -32,7 +32,11 @@ legend.scheduler-border {
 </head>
 
 <body class="h-100 bg-dark">
-    <?php $this->load->view("CommonHeader");?>
+    <?php 
+    /*echo lang('AlumnesOfertes');
+    echo $currentControler;
+    exit;*/
+    $this->load->view("CommonHeader");?>
     <main class="container-fluid mt-3">
         <section class="row p-2">
             <fieldset class="col-12 scheduler-border bg-light">
@@ -91,12 +95,13 @@ legend.scheduler-border {
                 </form>
             </fieldset>
         </section>
-        <section class="row p-2">
-            <div class="card-group">
+        <section class="row ">
 
-<div class="card">
+<?php for($i=0;$i<10;$i++){?>
+<div class="col-3 p-1">
+    <div class="card">
     <div class="card-body">
-        <h5 class="card-title">Titol De La Oferta</h5>
+        <h5 class="card-title">Titol De La Oferta <?php echo $i ;?></h5>
         <p class="card-text">Aqui aniria la descripcio breu de la oferta de treball.</p>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Mostrar més</button>
@@ -159,9 +164,9 @@ legend.scheduler-border {
         <!--/ Modal -->
     </div>
 </div>
- 
+</div>
+ <?php } ?>
 
-            </div>
         </section>
     </main>
     <!-- /main.container-fluid -->

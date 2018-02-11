@@ -44,7 +44,6 @@ class Ofertes extends CI_Model {
     
      public function getAll()
 	{
-
 		$this->db->select('id,nom_empresa,retribucio');
         $this->db->from('ofertes');
 		$this->db->where("true");

@@ -12,20 +12,28 @@ class Login extends CI_Controller {
 		$this->load->helper(array('url','language'));
         $this->load->library('form_validation');
         
-        $this->session->set_userdata('idioma','cat');
+        if(!isset($this->session->idioma)){
+            $this->session->set_userdata('idioma','cat');
+        }
         $this->session->set_userdata('currentControler','Login');
-        
 	}
 
-	public function index($lang='')
-	{
-        if($this->session->idioma != $lang && $lang!=''){
-            $this->session->idioma = $lang;
-        }
+        
+	public function index(){
         
         $this->lang->load('Login', $this->session->idioma);
+        
 		$this->load->view('Login');
 	}
+    
+    public function canviaLang($lang=''){
+        if($this->session->idioma != $lang && $lang!=''){
+             $this->session->set_userdata('idioma',$lang);
+        }
+                
+        redirect ('Login/index', 'refresh');
+    }
+    
     
     
 	public function LoginEmpresa()
