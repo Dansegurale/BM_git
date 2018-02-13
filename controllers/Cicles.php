@@ -16,12 +16,11 @@ class Cicles extends CI_Controller {
 	{
         //sin paginacion
         $this->load->model('CiclesM');
-        $data['info'] = $this->CiclesM->getAll(null);
-        
+
         //con paginacion
         //las que muestro
-        $q = $this->db->get('cicles',4,$this->uri->segment(3));
-        $data['paginada'] = $q->result();
+        $offset = $this->uri->segment(3)==null ? 1 : $this->uri->segment(3);
+        $data['paginada'] = $this->CiclesM->getSorted('codi','ASC',4,$offset);;
         
         
         $q2 = $this->db->get('cicles');//todas las filas

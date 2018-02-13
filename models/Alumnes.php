@@ -34,7 +34,7 @@ class Alumnes extends CI_Model {
     
     public function getCicles($alumne)
 	{
-        $condicio = "a.id = '".$id."'";
+        $condicio = "a.id = '".$alumne."'";
 		$this->db->select('c.codi as "codi_cicle", c.nom as "nom_cicle"');
         $this->db->from('alumnes a left join alumnes_cicles ac on a.id=ac.id_alumne left join cicles c on ac.codi_cicle=c.codi');
 		$this->db->where($condicio);
@@ -45,16 +45,35 @@ class Alumnes extends CI_Model {
         return ($result);
 	}
     
-    public function getOfertes($alumne)
+    public function getOfertesSubscrites($alumne,$camp="codi",$ordre="ASC",$how_many,$offset)
 	{
         $condicio = "a.id = '".$id."'";
 		$this->db->select('id_oferta');
         $this->db->from('alumnes a left join alumnes_ofertes on a.id = id_alumne');
 		$this->db->where($condicio);
-        $q = $this->db->get('my_users_table');
+        $this->db->order_by($camp,$ordre);
+        if($offset!=null && $how_many!=null){
+            $this->db->limit($how_many, $offset); 
+        }
         
         $result = $q->result_array();
         
         return ($result);
 	}
+    public function getOfertes($camp="codi",$ordre="ASC",$how_many,$offset){
+        $this->db->select('*');
+        $this->db->from('ofertes');
+        $this->db->order_by($camp,$ordre);
+        if($offset!=null && $how_many!=null){
+            $this->db->limit($how_many, $offset); 
+        }
+        
+        $q = $this->db->get();
+        
+        $result = $q->result_array();
+        
+        return ($result); 
+    }
+    
+    
 }

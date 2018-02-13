@@ -16,18 +16,10 @@
 -->
     <link rel="stylesheet" href="<?php echo base_url('fontawesome/web-fonts-with-css/css/fontawesome-all.css');?>">
     <!--https://stackoverflow.com/questions/16852484/use-fieldset-legend-with-bootstrap-->
-    <style>
-    fieldset.scheduler-border {
-    border: solid 2px #007bff !important;
-    padding: 0px 0px 0px 10px;
-    border-bottom: none;
-}
-
-legend.scheduler-border {
-    width: auto !important;
-    border: none;
-    font-size: 14px;
-}
+    <style>    
+        table{
+            overflow-x: scroll;
+        }
     </style>
 </head>
 
@@ -44,17 +36,19 @@ legend.scheduler-border {
             ?>
         </table>-->
         
-        <table class="table">
+        <div class="table-responsive">
+            <table class="table">
             <caption>Ejemplo con paginacion</caption>
             <tr>
                 <th>codi</th><th>nom</th>
             </tr>
             <?php
                 foreach ($paginada as $row){
-                 echo "<tr> <td>".$row->codi."</td><td>".$row->nom."</td></tr>";   
+                 echo "<tr> <td>".$row['codi']."</td><td>".$row['nom']."</td></tr>";   
                 }
             ?>
         </table>
+        </div>
         <?php echo $this->pagination->create_links(); ?>
         
     </main>
